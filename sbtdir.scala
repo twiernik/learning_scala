@@ -1,10 +1,11 @@
 import java.nio.file._
 
 def createDirs(root: String) :Unit = {
+
 	 List("main","test").foreach(target =>{
 	 		List("scala","java","resources").foreach(dirname => {
 	 			println("creating " + Paths.get(root,target,dirname))
-	 			Files.createDirectories(Paths.get(root,target,dirname))
+	 			Files.createDirectories(Paths.get(root,,"src",target,dirname))
 	 		})
 	})
 }
