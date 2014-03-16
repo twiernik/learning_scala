@@ -1,0 +1,1 @@
+addSbtPlugin("lib-repo" % "jooq-sbt-plugin" % "1.4")
