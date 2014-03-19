@@ -36,7 +36,7 @@ class MaxiXmlService(credentials: MaxiCredentials) {
   def shouldImport: Boolean = {
     Days.daysBetween(
       new DateTime(context.select(Tables.ATHLETE.DATE.max()).from(Tables.ATHLETE).fetch().get(0).value1().getTime).toLocalDate,
-      LocalDate.now).getDays  > 0
+      LocalDate.now).getDays > 0
   }
 
   def runImports() {
@@ -53,39 +53,37 @@ class MaxiXmlService(credentials: MaxiCredentials) {
   def getAthleteRecord(athleteNode: Node): AthleteRecord = {
     val athleteRecord = new AthleteRecord
 
-    athleteNode.child.filter(_.isInstanceOf[Elem]).foreach(k => {
-      try{
-       k match {
-        case n if n.text.isEmpty =>
-        case n if n.text.forall(_.isDigit) => athleteRecord.setV(n.label, n.text.toInt)
-        case n => athleteRecord.setV(n.label, n.text)
-       }
-      }catch{
-        case e: Exception => {
-          println(e)
-        }
-      }
-    })
+    athleteNode.child.filter(_.isInstanceOf[Elem]).foreach {
+      case n if n.text.isEmpty =>
+      case n if n.text.forall(_.isDigit) => athleteRecord.setV(n.label, n.text.toInt)
+      case n => athleteRecord.setV(n.label, n.text)
+    }
     athleteRecord
   }
 
   def saveRecord[R <: org.jooq.TableRecord[R]](tableRecord: R) {
-    try
-    {
     if (tableRecord.hasProperty("date"))
       tableRecord.setV("date", new java.sql.Time(java.util.Calendar.getInstance().getTimeInMillis))
     context.executeInsert(tableRecord)
-    }catch{
-      case e: Exception => {
-        println(e)
-      }
-
-
-    }
   }
 
   def importAthletes() {
-    (getAthletesData \ "athlete").map(getAthleteRecord).foreach(n => saveRecord(n))
+    (getAthletesData \ "athlete").map(getAthleteRecord).foreach(athleteRecord =>
+    {
+      saveRecord(athleteRecord)
+      importWeeklytest(athleteRecord)
+    })
+  }
+
+  def getWeeklyTestData(record: AthleteRecord): Node = {
+    val stringResponse = EntityUtils.toString(httpClient.execute(new HttpGet("http://www.maxithlon.com/maxi-xml/weeklytest.php?athleteid=" + record.getAthleteid)).getEntity, "utf-8")
+    XML.loadString(stringResponse)
+  }
+
+
+  def importWeeklytest(athleteRecord: AthleteRecord) {
+    val node = getWeeklyTestData(athleteRecord)
+    println(node)
   }
 
   def getElements(entityXml: Node): List[Node] = {

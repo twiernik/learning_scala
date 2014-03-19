@@ -24,6 +24,9 @@ libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "0.8.0"
 
 libraryDependencies += "postgresql" % "postgresql" % "9.1-901.jdbc4"
 
+libraryDependencies += "org.specs2" %% "specs2" % "2.3.10" % "test"
+
+scalacOptions in Test ++= Seq("-Yrangepos")
 
 //seq(jooqSettings:_*)
 //

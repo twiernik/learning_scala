@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<maxi-xml>
+    <athlete index="1">
+        <athleteId>2964819</athleteId>
+        <name>Zbigniew</name>
+        <surname>Robak</surname>
+        <sex>0</sex>
+        <age>19</age>
+        <nationId>23</nationId>
+        <owner>74428</owner>
+        <wage>1073</wage>
+        <height>173</height>
+        <weight>72</weight>
+        <fans>25</fans>
+        <sponsor id="147" money="809" weeks="2"/>
+        <maxid>1790</maxid>
+        <form>18</form>
+        <care>7</care>
+        <experience>4</experience>
+        <mood>20</mood>
+        <specialtyId change="2013-02-04T00:00:00+01:00">5</specialtyId>
+        <favoriteEventId>28</favoriteEventId>
+        <strenght>0</strenght>
+        <stamina>3</stamina>
+        <speed>7</speed>
+        <agility>8</agility>
+        <jump>10</jump>
+        <throw>1</throw>
+        <specialty1>7</specialty1>
+        <specialty2>8</specialty2>
+        <coachId>387796</coachId>
+        <injury>0</injury>
+        <sell deadline="0"/>
+        <youth>0</youth>
+        <specialtyIdTrained>5</specialtyIdTrained>
+        <diet>0</diet>
+        <trainingRetreat>1</trainingRetreat>
+    </athlete>
+    <athlete index="2">
+        <athleteId>3102044</athleteId>
+        <name>Alicja</name>
+        <surname>Łyko</surname>
+        <sex>1</sex>
+        <age>18</age>
+        <nationId>23</nationId>
+        <owner>74428</owner>
+        <wage>339</wage>
+        <height>173</height>
+        <weight>77</weight>
+        <fans>2</fans>
+        <sponsor id="0" money="0" weeks="0"/>
+        <maxid>1160</maxid>
+        <form>18</form>
+        <care>6</care>
+        <experience>2</experience>
+        <mood>20</mood>
+        <specialtyId change="2013-06-24T00:00:00+02:00">5</specialtyId>
+        <favoriteEventId>27</favoriteEventId>
+        <strenght>1</strenght>
+        <stamina>1</stamina>
+        <speed>8</speed>
+        <agility>3</agility>
+        <jump>9</jump>
+        <throw>1</throw>
+        <specialty1>7</specialty1>
+        <specialty2>6</specialty2>
+        <coachId>387796</coachId>
+        <injury>0</injury>
+        <sell deadline="0"/>
+        <youth>0</youth>
+        <specialtyIdTrained>5</specialtyIdTrained>
+        <diet>0</diet>
+        <trainingRetreat>0</trainingRetreat>
+    </athlete>
+    <athlete index="3">
+        <athleteId>3118330</athleteId>
+        <name>Filip</name>
+        <surname>Starzak</surname>
+        <sex>0</sex>
+        <age>18</age>
+        <nationId>23</nationId>
+        <owner>74428</owner>
+        <wage>291</wage>
+        <height>176</height>
+        <weight>82</weight>
+        <fans>2</fans>
+        <sponsor id="0" money="0" weeks="0"/>
+        <maxid>960</maxid>
+        <form>19</form>
+        <care>9</care>
+        <experience>3</experience>
+        <mood>20</mood>
+        <specialtyId change="2013-07-10T00:00:00+02:00">1</specialtyId>
+        <favoriteEventId>23</favoriteEventId>
+        <strenght>9</strenght>
+        <stamina>1</stamina>
+        <speed>7</speed>
+        <agility>8</agility>
+        <jump>1</jump>
+        <throw>2</throw>
+        <specialty1>6</specialty1>
+        <specialty2>6</specialty2>
+        <coachId>387792</coachId>
+        <injury>0</injury>
+        <sell deadline="0"/>
+        <youth>0</youth>
+        <specialtyIdTrained>1</specialtyIdTrained>
+        <diet>0</diet>
+        <trainingRetreat>0</trainingRetreat>
+    </athlete>
+</maxi-xml>
