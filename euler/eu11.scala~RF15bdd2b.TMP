@@ -20,25 +20,22 @@ var content =  """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"""
 
 // array of arrays
-val el = content.split("\n").map(line => line.split(" ").map(k => BigInt.apply(k.trim)))
+val el = content.split("\n").map(line => line.split(" ").map(_.trim.toInt))
 
-case class Cord(x: Int,y: Int)
+case class Cord(x: Int,y: Int) {
+	def add(cord: Cord) : Cord = Cord(cord.x + x,cord.y + y)
+}
 
 def getPathCords(start: Cord) : List[List[Cord]] = {
 	def getVectorPath(start: Cord,step: Cord) : List[Cord] = {
-		(0 to 3).map(i => Cord(start.x + i * step.x,start.y + i * step.y)).toList
+		(1 to 4).map(i => Cord(start.x + i * step.x,start.y + i * step.y)).toList
 	}
-	getVectorPath(start,Cord(1,0)):: getVectorPath(start,Cord(0,1)) :: getVectorPath(start,Cord(1,1)) :: getVectorPath(start,Cord(1,-1)) :: Nil	
+	//return getVectorPath(point,Cord(1,0)) :: getVectorPath(point,Cord(0,1)) :: getVectorPath(point,Cord(1,1)) :: Nil
+	getVectorPath(start,Cord(1,1)) :: Nil
 }
 
-def getProductValue(cords: List[Cord]) : BigInt = {
-	cords.map(c => {
-			if(c.x < 0 || c.x >= el.length || c.y < 0 || c.y >= el(c.x).length)
-				 BigInt(0)
-			else
-				el(c.x)(c.y)	
-			}).foldLeft(BigInt(1)){_*_}
-}
 
-println((0 to 20).map(x => (0 to 20).map(y => (x,y))).flatten.map(k => getPathCords(Cord(k._1,k._2))).flatten.map(getProductValue).max)
+println(getPathCords(Cord(0,0)))
+
+
 
