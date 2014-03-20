@@ -24,3 +24,10 @@ def getPrimeFactors(i: BigInt): List[BigInt] = {
 	getPrimeFactors(i, 2, Nil)
 }
 
+def getDivisors(i: Int) : List[Int] = {
+	(2 to Math.floor(Math.sqrt(i)).toInt)
+		.filter(d => i%d == 0)
+		.flatMap(d => List(d,i/d))
+		.toList
+}
+
