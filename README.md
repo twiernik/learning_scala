@@ -1,1 +1,1 @@
-[![Cognifide logo](docs/cognifide-logo.png =100x20)](http://cognifide.com)
+<img src="cognifide-logo.svg" width="158" alt="Cognifide logo" />
