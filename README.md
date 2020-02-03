@@ -1,4 +1,4 @@
-<img src="cognifide-logo.svg" width="51" alt="Cognifide logo" />
+<img src="cognifide-logo.svg" width="158" alt="Cognifide logo" />
 
 
 sdafasdf
